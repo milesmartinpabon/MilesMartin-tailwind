@@ -1,92 +1,253 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss"> @custom-variant dark (&:where(.dark, .dark *));
+
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+    </style>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .project-card {
+            border-radius: 12px;
+        }
+
+        input,
+        textarea {
+            color: #111827;
+            background-color: white;
+            border-radius: 6px;
+        }
+
+        button {
+            cursor: pointer;
+        }
     </style>
 </head>
 
-<body class="text-center dark:bg-slate-900 bg-white text-slate-900 dark:text-white">
-    <h1 class="text-3xl font-bold"> Nicolas Kian G. Yabut</h1>
-<!-- Name -->
-    
-    <header>
-        <h1 class="text-3xl font-bold">
-        Pabon Miles Martin
-        <h1 class="text-3xl text-red-500 font-bold underline">
-            Hello world!
+<body class="text-center bg-white text-slate-900 dark:bg-slate-900 dark:text-white">
+
+    <!-- Header -->
+    <header class="p-5">
+        <h1 class="main-title text-3xl font-bold">
+            Miles Martin G. Pabon
         </h1>
-        <nav class="flex justify-between items-center mx-[50px] max-[600px]:flex-col">
-            <span class="text-green-500 text-[50px]">
-                @PABON
+
+        <h2 class="text-3xl text-red-500 font-bold underline mt-4">
+            Hello World!
+        </h2>
+
+        <nav class="flex justify-between items-center mx-[50px] mt-8 max-[600px]:mx-2 max-[600px]:flex-col gap-5">
+            <span class="text-green-500 text-[40px] font-bold">
+                c20245216.pabon@casv.edu.ph
             </span>
+
             <ul class="flex gap-5 list-none max-[600px]:flex-col">
-                <li><a href="#projects" class="hover:text-red-500">Projects</a></li>
-                <li><a href="#services" class="hover:text-red-300">Services</a></li>
-                <li><a href="#contact" class="hover:text-red-200">Contact Me</a></li>
+                <li><a href="#projects" class="hover:text-red-500 transition-colors">Projects</a></li>
+                <li><a href="#services" class="hover:text-red-300 transition-colors">Services</a></li>
+                <li><a href="#contact" class="hover:text-red-200 transition-colors">Contact Me</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="flex flex-wrap gap-[30px] p-[50px] m-[50px] max-[600px]:p-[15px]
-     max-[600px]:m-[10px]">
+    <!-- Main Content -->
+    <main class="flex flex-wrap gap-[30px] p-[50px] m-[30px] max-[600px]:p-[15px] max-[600px]:m-[10px]">
+
         <!-- Projects -->
-        <section id="projects" class="flex-1 min-w-[280px] border-2 border-black p-5 
-        bg-green-400 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
+        <section id="projects"
+            class="project-card flex-1 min-w-[280px] border-2 border-black p-5 bg-green-400 text-slate-900 max-[600px]:min-w-0">
+
+            <h2 class="section-title text-3xl font-bold mb-4">
                 My Projects
             </h2>
+
             <p>
-                Personal portfolio, payroll system, company website,startup website, and compliance monitoring system.
+                Personal portfolio, payroll system, company website,
+                startup website, and compliance monitoring system.
             </p>
         </section>
+
         <!-- Services -->
-        <section id="services" class="flex-1 min-w-[280px] border-2 border-gray-300 dark:border-slate-800 dark:bg-slate-900 p-5
-         bg-blue-500 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
+        <section id="services"
+            class="project-card flex-1 min-w-[280px] border-2 border-gray-300 p-5 bg-blue-500 text-white dark:border-slate-700 max-[600px]:min-w-0">
+
+            <h2 class="section-title text-3xl font-bold mb-4">
                 My Services
             </h2>
+
             <p>
-                Website Creation, System Creation, AI Automation,Database Management, Project Management, Systems
-                Analyst
+                Website Creation, System Creation, AI Automation,
+                Database Management, Project Management, and Systems Analysis.
             </p>
         </section>
+
         <!-- Contact -->
-        <section id="contact" class="flex-1 min-w-[280px] border-2 border-black p-5 
-        bg-violet-500 max-[600px]:min-w-0">
-            <h2 class="max-[768px]:text-[48px] max-[768px]:text-blue-500">
-                Let's build together!
+        <section id="contact"
+            class="project-card flex-1 min-w-[280px] border-2 border-black p-5 bg-violet-500 text-white max-[600px]:min-w-0">
+
+            <h2 class="section-title text-3xl font-bold mb-4">
+                Let's Build Together!
             </h2>
-            <form action="#" class="flex flex-col gap-5">
+
+            <form id="contactForm" action="#" class="flex flex-col gap-4 text-left">
+
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" required class="border border-gray-400 p-2">
+                <input id="name" name="name" type="text" required
+                    class="border border-gray-400 p-3">
+
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" required class="border border-gray-400 p-2">
+                <input id="email" name="email" type="email" required
+                    class="border border-gray-400 p-3">
+
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required class="border border-gray-400 p-2">
-                </textarea>
-                <button type="submit" class="bg-black text-white p-3 rounded-[15px] hover:bg-red-500">
+                <textarea id="message" name="message" rows="5" required
+                    class="border border-gray-400 p-3"></textarea>
+
+                <button type="submit"
+                    class="bg-black text-white p-3 rounded-[10px] hover:bg-red-500 transition-colors">
                     Send Message
                 </button>
             </form>
         </section>
-    </main>
-    <button id="switch"class="bg-black text-white p-(12px) rounded-[10px] transition-colors duration-500 ease-in-out hover:bg-pink-500">switch</button>
-    <button id="toggledark"class="bg-black text-white p-(12px) rounded-[10px] transition-colors duration-500 ease-in-out hover:bg-pink-500">Toggledark</button>
-    <script src="script.js"></script>
-    <script>
-        const toggleDarkButton = document.querySelector('#toggledark');
-        const html = document.querySelector('html');
 
-        toggleDarkButton.addEventListener('click', function(){
-            html.classList.toggle('dark');
+    </main>
+
+    <!-- Controls -->
+    <div class="flex justify-center flex-wrap gap-4 p-5">
+        <button id="switch"
+            class="bg-black text-white px-5 py-3 rounded-[10px] transition-colors hover:bg-pink-500">
+            Switch Theme
+        </button>
+
+        <button id="toggledark"
+            class="bg-black text-white px-5 py-3 rounded-[10px] transition-colors hover:bg-pink-500">
+            Toggle Dark
+        </button>
+
+        <button id="replay"
+            class="bg-black text-white px-5 py-3 rounded-[10px] transition-colors hover:bg-pink-500">
+            Replay Animation
+        </button>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <script>
+        console.log("GSAP version:", gsap.version);
+
+        // Select elements
+        const html = document.documentElement;
+        const switchButton = document.querySelector("#switch");
+        const toggleDarkButton = document.querySelector("#toggledark");
+        const replayButton = document.querySelector("#replay");
+
+        // Dark mode toggle
+        function toggleTheme() {
+            html.classList.toggle("dark");
+        }
+
+        switchButton.addEventListener("click", toggleTheme);
+        toggleDarkButton.addEventListener("click", toggleTheme);
+        
+       // gsap.to("h1", {
+  // x: 100,
+  // opacity: 0.5,
+  // scale: 1,
+  // rotation: 360,
+  // backgroundColor: "green",
+  // duration: 5
+  // });
+
+  // gsap.from("h1", {
+  // y: -60,
+  // opacity: 0,
+  // scale: 0.5,
+  // duration: 1,
+  // ease: "elastic.out(1,0.5)",
+  // repeat: -1
+  // });
+
+
+
+        // Navigation animation
+        gsap.from("nav a", {
+            y: -20,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        // Animate theme buttons when clicked
+        [switchButton, toggleDarkButton].forEach((button) => {
+            button.addEventListener("click", () => {
+                gsap.fromTo(
+                    button,
+                    { rotation: 0, scale: 0.9 },
+                    {
+                        rotation: 360,
+                        scale: 1,
+                        duration: 0.6,
+                        ease: "power2.out"
+                    }
+                );
+            });
+        });
+
+        // Main animation timeline
+        const tl = gsap.timeline({
+            defaults: {
+                duration: 0.6,
+                ease: "power2.out"
+            }
+        });
+
+        tl.from(".main-title", {
+            y: -60,
+            opacity: 0,
+            scale: 0.5
+        })
+        .from("header > h2", {
+            y: -20,
+            opacity: 0
+        })
+        .from(".section-title", {
+            y: 20,
+            opacity: 0,
+            stagger: 0.2
+        })
+        .from(".project-card", {
+            y: 40,
+            opacity: 0,
+            stagger: 0.2
+        }, "-=0.3");
+
+        // Replay all timeline animations
+        replayButton.addEventListener("click", () => {
+            tl.restart();
+        });
+
+        // Demo form handling
+        document.querySelector("#contactForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            alert("Thank you for your message! Connect this form to a backend to send messages.");
         });
     </script>
 
 </body>
-
 </html>
